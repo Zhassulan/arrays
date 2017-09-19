@@ -1,7 +1,5 @@
 package teaching.arrays;
 
-import java.util.Collection;
-
 public class ArrayManager {
 	
 	public void printArr(String [][] arr)	{
@@ -60,13 +58,12 @@ public class ArrayManager {
 						}
 					}
 					arr[i1][0] = "-";
-					//printArr(arr);
 					}	
 				}
 		}
 	}
 	
-	String getStartTime(String time)	{
+	private String getStartTime(String time)	{
 		String res = null;
 		try {
 			res = time.substring(0, 2);	
@@ -76,7 +73,7 @@ public class ArrayManager {
 		return res;
 	}
 	
-	String getEndTime(String time)	{
+	private String getEndTime(String time)	{
 		String res = null;
 		try {
 			res = time.substring(6, 8);	
@@ -106,10 +103,4 @@ public class ArrayManager {
 			}
 		return newarr;
 	}
-	
-	/*public void PrintCollection(Collection<?> c)	{
-		for (Object o : c)	{
-			System.out.println(o);
-		}
-	}*/
 }

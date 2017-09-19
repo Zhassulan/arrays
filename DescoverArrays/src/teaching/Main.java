@@ -22,17 +22,6 @@ public class Main {
 		System.out.println("After: ");
 		String newarr [][] = am.NewArr(arr) ;
 		am.printArr(newarr);
-		/*
-		Collection <String> cs = new ArrayList <String> ();
-		Collection <Integer> ci = new ArrayList <Integer> ();
-		ci.add(1);
-		ci.add(2);
-		ci.add(3);
-		cs.add("hello");
-		cs.add("world");
-		am.PrintCollection(cs);
-		am.PrintCollection(ci);
-		*/
 	}
 
 }
