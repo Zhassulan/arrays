@@ -16,20 +16,21 @@ public class ArrayManager {
 	     }
 	}
 	
-	public void ProcessArr(String [][] arr, int cols, int rows)	{
+	public void ProcessArr(String [][] arr, int rows, int cols)	{
 		int st1, st2, en1, en2;
-		for (int i = 0; i < cols; i++) {
-			for (int j = i + 1; j < cols; j++) {
-				if (arr[0][i].equals(arr[0][j]))	{
-					for (int i2 = 1; i2 < rows; i2++) {
-						st1 = Integer.parseInt(getStartTime(arr[i2][i]));
-						en1 = Integer.parseInt(getEndTime(arr[i2][i]));
-						st2 = Integer.parseInt(getStartTime(arr[i2][j]));
-						en2 = Integer.parseInt(getEndTime(arr[i2][j]));
+		for (int i = 0; i < rows; i++) {
+			for (int i1 = i + 1; i1 < rows; i1++) {
+				if (arr[i][0].equalsIgnoreCase(arr[i1][0]))	{
+					for (int j = 1; j < cols; j++) {
+						System.out.println(arr[i][j]);
+						st1 = Integer.parseInt(getStartTime(arr[i][j]));
+						en1 = Integer.parseInt(getEndTime(arr[i][j]));
+						
+						st2 = Integer.parseInt(getStartTime(arr[i1][j]));
+						en2 = Integer.parseInt(getEndTime(arr[i1][j]));
 						
 						if (en1 < st2)	{
-							//System.out.println(arr[i2][i] + " + " + arr[i2][j]);
-							arr[i2][i] = arr[i2][i] + " + " + arr[i2][j];
+							arr[i][j] = arr[i][j] + " + " + arr[i1][j];
 						}
 						else	{
 							if (st1 > st2)	{
@@ -38,12 +39,11 @@ public class ArrayManager {
 							if (en1 < en2) {
 								en1 = en2;
 							}
-							//System.out.println(st1 + ":00 - " + en1 + ":00");
-							arr[i2][i] = st1 + ":00 - " + en1 + ":00";
+							arr[i][j] = st1 + ":00 - " + en1 + ":00";
 						}
-						arr[i2][j] = "";
+						arr[i1][j] = "";
 					}
-					arr[0][j] = "";
+					arr[i1][0] = "";
 					}	
 				}
 		}
