@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public class ArrayManager {
 	
-	private String [][] arr;
-		
 	public void printArr(String [][] arr)	{
 		String str = null;
 		for (String[] innArr: arr) {
@@ -71,9 +69,9 @@ public class ArrayManager {
 		return res;
 	}	
 	
-	public void PrintCollection(Collection<?> c)	{
+	/*public void PrintCollection(Collection<?> c)	{
 		for (Object o : c)	{
 			System.out.println(o);
 		}
-	}
+	}*/
 }
