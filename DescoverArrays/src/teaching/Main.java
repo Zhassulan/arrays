@@ -20,7 +20,8 @@ public class Main {
 		am.printArr(arr);
 		am.ProcessArr(arr, arr.length, arr[0].length);
 		System.out.println("After: ");
-		am.printArr(arr);
+		String newarr [][] = am.NewArr(arr) ;
+		am.printArr(newarr);
 		/*
 		Collection <String> cs = new ArrayList <String> ();
 		Collection <Integer> ci = new ArrayList <Integer> ();

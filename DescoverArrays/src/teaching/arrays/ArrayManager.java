@@ -6,7 +6,6 @@ public class ArrayManager {
 	
 	public void printArr(String [][] arr)	{
 		String str = null;
-		System.out.println("-------------------------");
 		for (String[] innArr: arr) {
 			str = "";
 	        for (String data: innArr) {
@@ -86,6 +85,27 @@ public class ArrayManager {
 		}
 		return res;
 	}	
+	
+	public String [][] NewArr(String [][] arr)	{
+		int rows = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (!arr[i][0].equals("-"))
+				rows += 1;
+		}
+		int cols = arr[0].length;
+		int m = 0;
+		String [][] newarr = new String [rows][cols];
+		for (int i = 0; i < rows; i++) {
+			if (!arr[i][0].equals("-"))	{
+				//заполнение нового массива
+				for (int j = 0; j < cols; j++) {
+					newarr[m][j] = arr[i][j];
+				}
+				m += 1;
+				}
+			}
+		return newarr;
+	}
 	
 	/*public void PrintCollection(Collection<?> c)	{
 		for (Object o : c)	{
