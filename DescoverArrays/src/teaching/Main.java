@@ -20,6 +20,7 @@ public class Main {
 		
 		//am.printArr(arr);
 		am.ProcessArr(arr, arr[0].length, arr.length);
+		am.printArr(arr);
 		/*
 		Collection <String> cs = new ArrayList <String> ();
 		Collection <Integer> ci = new ArrayList <Integer> ();
