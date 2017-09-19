@@ -6,6 +6,7 @@ public class ArrayManager {
 	
 	public void printArr(String [][] arr)	{
 		String str = null;
+		System.out.println("-------------------------");
 		for (String[] innArr: arr) {
 			str = "";
 	        for (String data: innArr) {
@@ -17,33 +18,50 @@ public class ArrayManager {
 	}
 	
 	public void ProcessArr(String [][] arr, int rows, int cols)	{
+		//вспомогательные переменные
 		int st1, st2, en1, en2;
-		for (int i = 0; i < rows; i++) {
+		//проход всех строк
+		for (int i = 0; i < rows - 1; i++) {
 			for (int i1 = i + 1; i1 < rows; i1++) {
+				//сравнение 0-го элемента строки с соседними строками
 				if (arr[i][0].equalsIgnoreCase(arr[i1][0]))	{
+					//сравнение времён, остальных элементов строки
 					for (int j = 1; j < cols; j++) {
-						System.out.println(arr[i][j]);
+
 						st1 = Integer.parseInt(getStartTime(arr[i][j]));
 						en1 = Integer.parseInt(getEndTime(arr[i][j]));
 						
 						st2 = Integer.parseInt(getStartTime(arr[i1][j]));
 						en2 = Integer.parseInt(getEndTime(arr[i1][j]));
 						
-						if (en1 < st2)	{
+						if (st2 > en1)	{
+							//сцепление
 							arr[i][j] = arr[i][j] + " + " + arr[i1][j];
 						}
 						else	{
+							boolean b = false;
 							if (st1 > st2)	{
-							st1 = st2;
+								st1 = st2;
+								b = true;
 							}
-							if (en1 < en2) {
+							if (en2 > en1) {
 								en1 = en2;
+								b = true;
 							}
-							arr[i][j] = st1 + ":00 - " + en1 + ":00";
+							if (b)	{
+								//объединение
+								String st3 = null;
+								String en3 = null;
+								if (st1 < 10) st3 = "0" + Integer.toString(st1) + ":00";
+								else st3 = Integer.toString(st1) + ":00";
+								if (en1 < 10) en3 = "0" + Integer.toString(en1) + ":00";
+								else en3 = Integer.toString(en1) + ":00";
+								arr[i][j] = st3 + "-" + en3;
+							}
 						}
-						arr[i1][j] = "";
 					}
-					arr[i1][0] = "";
+					arr[i1][0] = "-";
+					//printArr(arr);
 					}	
 				}
 		}
