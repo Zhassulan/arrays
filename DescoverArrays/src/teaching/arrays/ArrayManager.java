@@ -20,7 +20,7 @@ public class ArrayManager {
 		int st1, st2, en1, en2;
 		for (int i = 0; i < cols; i++) {
 			for (int j = i + 1; j < cols; j++) {
-				if (arr[0][i] == arr[0][j])	{
+				if (arr[0][i].equals(arr[0][j]))	{
 					for (int i2 = 1; i2 < rows; i2++) {
 						st1 = Integer.parseInt(getStartTime(arr[i2][i]));
 						en1 = Integer.parseInt(getEndTime(arr[i2][i]));
