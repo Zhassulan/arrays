@@ -1,8 +1,6 @@
 package teaching;
 
 import teaching.arrays.*;
-import java.util.Collection;
-import java.util.ArrayList;
 
 /**
  * Точка входа в приложение
