@@ -1,7 +1,19 @@
 package teaching.arrays;
 
+import java.util.Arrays;
+
+/*
+ * @author Zhassulan Tokbaev
+ * @version 1.0
+ * 
+*/
+
+//класс для оперирования над массивами и сопутствующие вспомогательные методы
 public class ArrayManager {
-	
+
+	/* метод распечатки двумерного массива в виде матрицы
+	 * @param String [][] двумерный массив строк
+	 */
 	public void printArr(String [][] arr)	{
 		String str = null;
 		for (String[] innArr: arr) {
@@ -14,23 +26,35 @@ public class ArrayManager {
 	     }
 	}
 	
+	/* метод начала обработки массива согласно задаче
+	 * @param String [][] двумерный массив строк 
+	 * @param int rows количество строк массива
+	 * @param int cols количество столбцов 
+	 */
 	public void ProcessArr(String [][] arr, int rows, int cols)	{
 		//вспомогательные переменные
 		int st1, st2, en1, en2;
-		//проход всех строк
+		//проход всех строк на предмет поиска одинаковых нулевых элементов
 		for (int i = 0; i < rows - 1; i++) {
 			for (int i1 = i + 1; i1 < rows; i1++) {
 				//сравнение 0-го элемента строки с соседними строками
 				if (arr[i][0].equalsIgnoreCase(arr[i1][0]))	{
-					//сравнение времён, остальных элементов строки
+					//если обнаружили схожий элемент, начинаем сравнение остальные элементов текущих двух строк
 					for (int j = 1; j < cols; j++) {
-
+						/*получаем целочисленные значения извлекая час из времени
+						 * st1,en1 - начало и конец рабочего дня строки источника
+						 * st2,en2 - начало и конец рабочего дня искомой строки
+						 * "08:00-12:00" st1-en1
+						 * "09:00-13:00" st2-en2
+						 */
+						
 						st1 = Integer.parseInt(getStartTime(arr[i][j]));
 						en1 = Integer.parseInt(getEndTime(arr[i][j]));
 						
 						st2 = Integer.parseInt(getStartTime(arr[i1][j]));
 						en2 = Integer.parseInt(getEndTime(arr[i1][j]));
 						
+						//сравниваем времена
 						if (st2 > en1)	{
 							//сцепление
 							arr[i][j] = arr[i][j] + " + " + arr[i1][j];
@@ -57,12 +81,16 @@ public class ArrayManager {
 							}
 						}
 					}
-					arr[i1][0] = "-";
+					arr[i1][0] = "-"; //помечаем прошедшую строку как обработанную
 					}	
 				}
 		}
 	}
 	
+	/* метод извлечения времени начала рабочего дня
+	 * @param String time отрезок рабочего времени в формате "09:00-13:00"
+	 * @return String строка час начала рабочего времени 
+	 */
 	private String getStartTime(String time)	{
 		String res = null;
 		try {
@@ -73,6 +101,10 @@ public class ArrayManager {
 		return res;
 	}
 	
+	/* метод извлечения времени конца рабочего дня
+	 * @param String time отрезок рабочего времени в формате "09:00-13:00"
+	 * @return String строка час конца рабочего времени 
+	 */
 	private String getEndTime(String time)	{
 		String res = null;
 		try {
@@ -83,12 +115,18 @@ public class ArrayManager {
 		return res;
 	}	
 	
+	/* метод копирования входящего массива в новый возвращаемый массив
+	 * @param String [][] arr двумерный массив строкового типа
+	 * @return String [][] arr двумерный массив строкового типа
+	 */
 	public String [][] NewArr(String [][] arr)	{
 		int rows = 0;
+		//определяем для нового массива количество строк, в входящем массиве строки не предназначенные для обработки мы помечали знаком тире "-"
 		for (int i = 0; i < arr.length; i++) {
 			if (!arr[i][0].equals("-"))
 				rows += 1;
 		}
+		//определяем количество столбцов для новог массива
 		int cols = arr[0].length;
 		int m = 0;
 		String [][] newarr = new String [rows][cols];
