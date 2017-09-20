@@ -2,17 +2,18 @@ package teaching.arrays;
 
 import java.util.Arrays;
 
-/*
+/**
  * @author Zhassulan Tokbaev
  * @version 1.0
- * 
-*/
+ * Класс для оперирования над массивами и сопутствующие вспомогательные методы
+ * @see ArrayManager
+ */
 
-//класс для оперирования над массивами и сопутствующие вспомогательные методы
 public class ArrayManager {
 
-	/* метод распечатки двумерного массива в виде матрицы
+	/** метод распечатки двумерного массива в виде матрицы
 	 * @param String [][] двумерный массив строк
+	 * @see printArr
 	 */
 	public void printArr(String [][] arr)	{
 		String str = null;
@@ -26,10 +27,11 @@ public class ArrayManager {
 	     }
 	}
 	
-	/* метод начала обработки массива согласно задаче
+	/** метод начала обработки массива согласно задаче
 	 * @param String [][] двумерный массив строк 
 	 * @param int rows количество строк массива
 	 * @param int cols количество столбцов 
+	 * @see ProcessArr
 	 */
 	public void ProcessArr(String [][] arr, int rows, int cols)	{
 		//вспомогательные переменные
@@ -87,9 +89,10 @@ public class ArrayManager {
 		}
 	}
 	
-	/* метод извлечения времени начала рабочего дня
+	/** метод извлечения времени начала рабочего дня
 	 * @param String time отрезок рабочего времени в формате "09:00-13:00"
 	 * @return String строка час начала рабочего времени 
+	 * @see getStartTime
 	 */
 	private String getStartTime(String time)	{
 		String res = null;
@@ -101,9 +104,10 @@ public class ArrayManager {
 		return res;
 	}
 	
-	/* метод извлечения времени конца рабочего дня
+	/** метод извлечения времени конца рабочего дня
 	 * @param String time отрезок рабочего времени в формате "09:00-13:00"
-	 * @return String строка час конца рабочего времени 
+	 * @return String строка час конца рабочего времени
+	 * @see getEndTime
 	 */
 	private String getEndTime(String time)	{
 		String res = null;
@@ -115,9 +119,10 @@ public class ArrayManager {
 		return res;
 	}	
 	
-	/* метод копирования входящего массива в новый возвращаемый массив
+	/** метод копирования входящего массива в новый возвращаемый массив
 	 * @param String [][] arr двумерный массив строкового типа
 	 * @return String [][] arr двумерный массив строкового типа
+	 * @see NewArr
 	 */
 	public String [][] NewArr(String [][] arr)	{
 		int rows = 0;

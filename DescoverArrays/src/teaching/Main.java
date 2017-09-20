@@ -4,17 +4,14 @@ import teaching.arrays.*;
 import java.util.Collection;
 import java.util.ArrayList;
 
-/*
+/**
+ * Точка входа в приложение
  * @author Zhassulan Tokbaev
  * @version 1.0
- * 
+ * @see Main
 */
 
 public class Main {
-	/*
-	 * Точка входа приложения
-	 */
-
 	public static void main(String [] args) {
 		ArrayManager am = new ArrayManager();
 		//Объявляем двумерный массив типа строка, первый элемент ФИО, остальные - расписание рабочего дня
